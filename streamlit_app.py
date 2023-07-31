@@ -7,13 +7,11 @@ st.set_page_config(layout="wide", initial_sidebar_state="collapsed")
 
 st.sidebar.markdown("# Position Query")
 
-st.title('AVT Security Positions')
+st.title('Security Positions')
 
 security = st.text_input('Enter security (e.g. META__230721C00230000) or name (e.g. META) for all positions')
 
-all_account_names = ["All Accounts", "COMPOSITE", "EE", "AMM_MAIN", "PXQ", "4_OPTIONS", "FX", "FLOOR", "AUCTIONS", 
-                     "DELTATEST", "GAMMA", "EFS", "MAKETAKE", "OVERFLOW", "PXT", "GREY", "SPOTVOL", "HEDGE", 
-                     "DISPERSION", "SYSTEMATIC","TRU", "SIGNALX", "INDEX", "TRADE", "HFT"]
+all_account_names = [""]
 
 selected_accounts = st.multiselect('Select accounts', options=all_account_names, default="All Accounts")
 
@@ -40,7 +38,7 @@ if start_date_str and end_date_str:
         dfs = []
         for date in all_dates:
             try:
-                df = pd.read_csv(f'/opt/avtprop_data3/sodpos/sodpos.9am.{date}.csv')
+                df = pd.read_csv(f'/.csv')
                 df['date'] = pd.to_datetime(date, format='%Y%m%d') 
                 filtered_df = df[df['symbol'].str.startswith(security)]
                 filtered_df['date'] = filtered_df['date'].astype(str).str.split(' ').str[0]
