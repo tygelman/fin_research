@@ -1,1 +1,7 @@
-yfinance
+streamlit==0.90.0
+yfinance==0.1.63
+pandas==1.3.3
+numpy==1.21.2
+matplotlib==3.4.3
+yahoo-earnings-calendar==0.9.4
+newsapi-python==0.2.6  # For news_sentiment.py
